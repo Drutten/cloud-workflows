@@ -17,14 +17,14 @@ Start the web server
 ```
 Invoke the function
 
-In the randomgen directory, to invoke randomgen function make a GET request to http:localhost:8080
+In the randomgen directory, to invoke randomgen function make a GET request to http://localhost:8080
 
-In the multiply directory, to invoke multiply function make a POST request to http:localhost:8080 and provide an input attribute with a number value in the request body {"input": 30}
+In the multiply directory, to invoke multiply function make a POST request to http://localhost:8080 and provide an input attribute with a number value in the request body {"input": 30}
 
 ## Deploying the functions
 Set the default project
 ```sh
-   gcloud config set project `<project-id>`
+   gcloud config set project <project-id>
 ```
 Replace `<project-id>` with the ID of your GCP project
 
