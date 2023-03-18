@@ -1,0 +1,14 @@
+- randomgenFunction:
+    call: http.get
+    args:
+        url: https://<region>-<project-id>.cloudfunctions.net/randomgen
+    result: randomgenResult
+- multiplyFunction:
+    call: http.post
+    args:
+        url: https://<region>-<project-id>.cloudfunctions.net/multiply
+        body:
+         input: ${randomgenResult.body.random}
+    result: multiplyResult
+- returnResult:
+    return: ${multiplyResult}

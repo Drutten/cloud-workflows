@@ -1,0 +1,13 @@
+{
+  "name": "multiply",
+  "version": "1.0.0",
+  "description": "Multiply by 2",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx functions-framework --target=multiply"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@google-cloud/functions-framework": "^3.1.3"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "randomgen",
+  "version": "1.0.0",
+  "description": "Generate random number",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx functions-framework --target=randomgen"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@google-cloud/functions-framework": "^3.1.3"
+  }
+}
