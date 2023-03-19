@@ -76,7 +76,7 @@ curl $(gcloud functions describe multiply \
 ```
 
 ## Connect the two functions using Cloud Workflows
-As shown the workflow declarations in workflow.yaml the result of the first Cloud Function is passed to the second cloud function in the request body
+As shown in the workflow declarations in workflow.yaml the result of the first Cloud Function is passed to the second cloud function in the request body
 
 Update workflow.yaml with the URLs of the deployed functions
 
