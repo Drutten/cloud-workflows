@@ -9,11 +9,11 @@ The library [@google-cloud/functions-framework](https://www.npmjs.com/package/@g
 
 Install the dependencies:
 ```sh
-    yarn install
+yarn install
 ```
 Start the web server
 ```sh
-    yarn start
+yarn start
 ```
 Invoke the function
 
@@ -24,55 +24,55 @@ In the multiply directory, to invoke multiply function make a POST request to ht
 ## Deploying the functions
 Set the default project
 ```sh
-   gcloud config set project <project-id>
+gcloud config set project <project-id>
 ```
 Replace `<project-id>` with the ID of your GCP project
 
 Make sure following services are enabled
 ```sh
-   gcloud services enable \
-     cloudfunctions.googleapis.com \
-     workflows.googleapis.com \
-     cloudbuild.googleapis.com \
-     storage.googleapis.com 
+gcloud services enable \
+   cloudfunctions.googleapis.com \
+   workflows.googleapis.com \
+   cloudbuild.googleapis.com \
+   storage.googleapis.com
 ```
 
 Deploy randomgen function
 From inside randomgen directory run command
 ```sh
-   gcloud functions deploy randomgen \
-     --runtime nodejs18 \
-     --trigger-http \
-     --allow-unauthenticated
+gcloud functions deploy randomgen \
+   --runtime nodejs18 \
+   --trigger-http \
+   --allow-unauthenticated
 ```
 
 Deploy multiply function
 From inside multiply directory run command
 ```sh
-   gcloud functions deploy multiply \
-     --runtime nodejs18 \
-     --trigger-http \
-     --allow-unauthenticated
+gcloud functions deploy multiply \
+   --runtime nodejs18 \
+   --trigger-http \
+   --allow-unauthenticated
 ```
 
 Get the URLs for the deployed functions
 ```sh
-   gcloud functions describe randomgen \
-  --format='value(httpsTrigger.url)'
+gcloud functions describe randomgen \
+   --format='value(httpsTrigger.url)'
 ```
 
 ```sh
-   gcloud functions describe multiply \
-  --format='value(httpsTrigger.url)'
+gcloud functions describe multiply \
+   --format='value(httpsTrigger.url)'
 ```
 
 Example of doing a POST request to the multiply function
 ```sh
-   curl $(gcloud functions describe multiply \
+curl $(gcloud functions describe multiply \
    --format='value(httpsTrigger.url)') \
-  -X POST \
-  -H "content-type: application/json" \
-  -d '{"input": 5}'
+   -X POST \
+   -H "content-type: application/json" \
+   -d '{"input": 5}'
 ```
 
 ## Connect the two functions using Cloud Workflows
@@ -82,16 +82,16 @@ Update workflow.yaml with the URLs of the deployed functions
 
 Deploy the workflow
 ```sh
-   gcloud beta workflows deploy workflow --source=workflow.yaml
+gcloud beta workflows deploy workflow --source=workflow.yaml
 ```
 
 Execute the workflow
 ```sh
-    gcloud beta workflows execute workflow
+gcloud beta workflows execute workflow
 ```
 Or execute the workflow in Cloud Console
 
 Retrieve the details of the most recent execution of a Cloud Workflows workflow
 ```sh
-    gcloud beta workflows executions describe-last
+gcloud beta workflows executions describe-last
 ```
